@@ -3,8 +3,8 @@ import { useState } from "react";
 
 export default function App() {
   const [cost, setCost] = useState("");
-  const [myRating, setMyRating] = useState(5);
-  const [friendRating, setFriendRating] = useState(10);
+  const [myRating, setMyRating] = useState(50);
+  const [friendRating, setFriendRating] = useState(70);
 
   function handleCost(e) {
     setCost(e.target.value);
@@ -50,10 +50,10 @@ function YourServiceRating({ mine, onRating }) {
     <div>
       <p style={{ display: "inline" }}>How did you like the service?</p>
       <select value={mine} onChange={(e) => onRating(e)}>
-        <option value="0"> Dissatisfied (0%) </option>
-        <option value="5"> Not bad (5%) </option>
-        <option value="10">It was good (10%)</option>
-        <option value="20">Absolutely amazing (20%)</option>
+        <option value="5"> Dissatisfied (5%) </option>
+        <option value="50"> Not bad (50%) </option>
+        <option value="70">It was good (70%)</option>
+        <option value="90">Absolutely amazing (90%)</option>
       </select>
     </div>
   );
@@ -63,10 +63,10 @@ function FriendServiceRating({ friend, onRating }) {
     <div>
       <p style={{ display: "inline" }}>How did your friend like the service?</p>
       <select value={friend} onChange={(e) => onRating(e)}>
-        <option value="0"> Dissatisfied (0%) </option>
-        <option value="5"> Not bad (5%) </option>
-        <option value="10">It was good (10%)</option>
-        <option value="20">Absolutely amazing (20%)</option>
+        <option value="5"> Dissatisfied (5%) </option>
+        <option value="50"> Not bad (50%) </option>
+        <option value="70">It was good (70%)</option>
+        <option value="90">Absolutely amazing (90%)</option>
       </select>
     </div>
   );
@@ -77,9 +77,11 @@ function CalcBill({ cost, mine, friend }) {
   if (!mine) return;
   if (!friend) return;
   function averageRatingBill(mine, friend) {
-    const average = (Number(mine) + Number(friend)) / 2;
-    if (Number.isInteger(average)) return average;
-    if (!Number.isInteger(average)) return average.toFixed(2);
+    const summation = Number(mine) + Number(friend);
+    const averagePercentage = summation / 100;
+    if (Number.isInteger(averagePercentage)) return averagePercentage;
+    if (!Number.isInteger(averagePercentage))
+      return averagePercentage.toFixed(2);
   }
   function summation(bill, mine, friend) {
     return Number(bill) + averageRatingBill(mine, friend);
