@@ -22,3 +22,8 @@ button {
   border-radius: 10px;
   cursor: pointer;
 }
+.bill-summary {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
