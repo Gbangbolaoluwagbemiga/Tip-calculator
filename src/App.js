@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function App() {
   const [cost, setCost] = useState("");
-  const [myRating, setMyRating] = useState(5);
+  const [myRating, setMyRating] = useState(0);
   const [friendRating, setFriendRating] = useState(10);
 
   function handleCost(e) {
