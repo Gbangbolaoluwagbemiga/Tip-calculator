@@ -35,7 +35,13 @@ function Bill({ cost, OnCost }) {
   return (
     <div>
       <p style={{ display: "inline" }}>How much was the bill?</p>
-      <input type="number" required value={cost} onChange={(e) => OnCost(e)} />
+      <input
+        type="number"
+        placeholder="How much was the bill?"
+        required
+        value={cost}
+        onChange={(e) => OnCost(e)}
+      />
     </div>
   );
 }
@@ -57,7 +63,7 @@ function FriendServiceRating({ friend, onRating }) {
     <div>
       <p style={{ display: "inline" }}>How did your friend like the service?</p>
       <select value={friend} onChange={(e) => onRating(e)}>
-      <option value="5"> Dissatisfied (0%) </option>
+        <option value="5"> Dissatisfied (0%) </option>
         <option value="5"> Not bad (5%) </option>
         <option value="10">It was good (10%)</option>
         <option value="20">Absolutely amazing (20%)</option>
