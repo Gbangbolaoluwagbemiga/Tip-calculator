@@ -81,7 +81,7 @@ function CalcBill({ cost, mine, friend }) {
     const averagePercentage = summation / 100;
     if (Number.isInteger(averagePercentage)) return averagePercentage;
     if (!Number.isInteger(averagePercentage))
-      return averagePercentage.toFixed(2);
+      return +averagePercentage.toFixed(2);
   }
   function summation(bill, mine, friend) {
     return Number(bill) + averageRatingBill(mine, friend);
