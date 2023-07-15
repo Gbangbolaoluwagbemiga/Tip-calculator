@@ -86,7 +86,7 @@ function CalcBill({ cost, mine, friend }) {
     <div className="bill-summary">
       {" "}
       Your Bill is ₦{summation(cost, mine, friend)} (₦{cost}+ ₦
-      {averageRatingBill(mine, friend)tip}){" "}
+      {averageRatingBill(mine, friend)} tip){" "}
     </div>
   );
 }
