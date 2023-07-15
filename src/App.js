@@ -77,7 +77,9 @@ function CalcBill({ cost, mine, friend }) {
   if (!mine) return;
   if (!friend) return;
   function averageRatingBill(mine, friend) {
-    return (Number(mine) + Number(friend)) / 2;
+    const average = (Number(mine) + Number(friend)) / 2;
+    if (Number.isInteger(average)) return average;
+    if (!Number.isInteger(average)) return average.toFixed(2);
   }
   function summation(bill, mine, friend) {
     return Number(bill) + averageRatingBill(mine, friend);
